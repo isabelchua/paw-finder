@@ -170,18 +170,20 @@ function Search() {
 				<button className="button">FETCH!</button>
 			</form>
 			<div className="gallery">
-				{dogs?.map((dog, id) => (
-					<Details dog={dog} key={id} />
-				))}
+				{dogs && dogs?.map((dog, id) => <Details dog={dog} key={id} />)}
+
+				{/* {pics ? pics?.map((dog, id) => <Gallery dog={dog} key={id} />) : ""} */}
+				{/* <h1>Gallery</h1> */}
 
 				{pics ? (
-					pics?.map((dog, id) => <Gallery dog={dog} key={id} />)
+					<>
+						{pics?.map((dog, id) => (
+							<Gallery dog={dog} key={id} />
+						))}
+					</>
 				) : (
 					<h3 className="warning">Sorry, no available images :( </h3>
 				)}
-				{pics?.map((dog, id) => (
-					<Gallery dog={dog} key={id} />
-				))}
 			</div>
 		</>
 	);
